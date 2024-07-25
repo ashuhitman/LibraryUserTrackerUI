@@ -26,8 +26,9 @@ export const addReport = createAsyncThunk(
 export const fetchSummary = createAsyncThunk(
   "reports/fetchSummary",
   async () => {
-    const response = await axios.get(REPORTS_API.SUMMARY);
-    console.log(response);
+    const today = new Date().toISOString().split("T")[0];
+    const response = await axios.get(`${REPORTS_API.SUMMARY}?date=${today}`);
+
     return response.data;
   }
 );

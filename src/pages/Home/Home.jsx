@@ -8,7 +8,11 @@ import { MdSettings } from "react-icons/md";
 import { IoDocumentText } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addReport, clearLatest, fetchSummary } from "../../redux/reportsSlice";
-import { calculateDuration, convertTo12Hour } from "../../utils/utils";
+import {
+  calculateDuration,
+  convertTo12Hour,
+  getCurrentTime,
+} from "../../utils/utils";
 import { fetchLibraryInfo } from "../../redux/libraryInfoSlice";
 
 const Home = () => {
@@ -83,7 +87,11 @@ const Home = () => {
   }, [addStatus, latest]);
 
   const handleCheckInOut = () => {
-    dispatch(addReport({ barcode }));
+    const today = new Date();
+    const date = today.toISOString().split("T")[0];
+    const time = getCurrentTime(today);
+
+    dispatch(addReport({ barcode, date, time }));
   };
 
   const logout = () => navigate("/");

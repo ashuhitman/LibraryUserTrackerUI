@@ -49,8 +49,11 @@ export function convertIsoToDate(isoTimestamp) {
       throw new Error("Invalid ISO timestamp");
     }
 
-    // Extract and return the date part in YYYY-MM-DD format
-    return date.toISOString().split("T")[0];
+    const day = String(date.getUTCDate()).padStart(2, "0");
+    const month = String(date.getUTCMonth() + 1).padStart(2, "0"); // Months are zero-based
+    const year = date.getUTCFullYear();
+
+    return `${day}-${month}-${year}`;
   } catch (error) {
     console.error(error.message);
     return null; // Or handle the error as needed
@@ -58,6 +61,8 @@ export function convertIsoToDate(isoTimestamp) {
 }
 
 export function convertTo12Hour(time) {
+  if (!time) return "";
+
   const [hours, minutes, seconds] = time.split(":").map(Number);
 
   const period = hours >= 12 ? "PM" : "AM";
@@ -100,4 +105,14 @@ export function calculateDuration(checkin, checkout) {
   return `${formatTimeUnit(hours)}:${formatTimeUnit(minutes)}:${formatTimeUnit(
     seconds
   )}`;
+}
+export function getTodayDate() {
+  return new Date().toISOString().split("T")[0];
+}
+export function getCurrentTime(now) {
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
+  return `${hours}:${minutes}:${seconds}`;
 }

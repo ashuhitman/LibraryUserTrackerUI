@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Reports.module.css";
 import { Link, useLocation } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
+import { FaCircle, FaHome } from "react-icons/fa";
 import data from "../../data/data.json";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   checkStatus,
   convertIsoToDate,
+  convertTo12Hour,
   downloadJSONAsExcel,
   downloadJSONAsPDF,
 } from "../../utils/utils";
@@ -38,17 +39,17 @@ function Reports() {
 
   useEffect(() => {
     document.title = "Reports";
+    const today = new Date().toISOString();
+
     const { startDate, endDate } = getQueryParams();
     if (startDate && endDate) {
       const query = `startDate=${startDate}&endDate=${endDate}`;
       dispatch(fetchReports(`${REPORTS_API.FETCH}?${query}`));
     } else {
       if (fetchStatus === "idle") {
-        dispatch(fetchReports(REPORTS_API.FETCH));
+        dispatch(fetchReports(`${REPORTS_API.FETCH}?date=${today}`));
       }
     }
-
-    console.log(getQueryParams());
   }, [location.search]);
 
   // Function to parse query string
@@ -170,10 +171,13 @@ function Reports() {
                     <tr key={index + row.checkin}>
                       <td>{index + start + 1}</td>
                       <td>{row.barcode}</td>
-                      <td>{row.checkin}</td>
-                      <td>{row.checkout}</td>
+                      <td>{convertTo12Hour(row.checkin)}</td>
+                      <td>{convertTo12Hour(row.checkout)}</td>
                       <td>{convertIsoToDate(row.created_date)}</td>
-                      <td>{checkStatus[row.status]}</td>
+                      <td style={{ textAlign: "center" }}>
+                        {/* {checkStatus[row.status]}{" "} */}
+                        <FaCircle color={row.status ? "green" : "red"} />
+                      </td>
                     </tr>
                   ))}
               </tbody>
