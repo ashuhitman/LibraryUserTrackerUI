@@ -1,0 +1,10 @@
+.center {
+  background-image: url("./src/assets/images/background.jpg"); /* Update with your background image path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  color: white;
+}

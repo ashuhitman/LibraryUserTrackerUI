@@ -1,0 +1,26 @@
+.pagination {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+.arrow {
+  color: white;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #04aa6d;
+  background-color: #04aa6d;
+  cursor: pointer;
+}
+.arrow:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.middle {
+  margin-left: auto;
+  margin-right: auto;
+}
+.next {
+}

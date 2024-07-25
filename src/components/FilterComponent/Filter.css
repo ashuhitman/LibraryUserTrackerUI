@@ -1,0 +1,9 @@
+.filter {
+  color: black;
+  align-self: center;
+  cursor: pointer;
+}
+.filter > button {
+  border: none;
+  border-radius: 50%;
+}
