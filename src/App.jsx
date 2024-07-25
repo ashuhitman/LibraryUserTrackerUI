@@ -4,10 +4,11 @@ import Home from "./pages/Home/Home";
 import Settings from "./pages/Settings/Settings";
 import Reports from "./pages/Reports/Reports";
 import "./App.css";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
-    <div className="center">
+    <Layout>
       <div className="overlay"></div>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -15,7 +16,7 @@ function App() {
         <Route path="settings/" element={<Settings />} />
         <Route path="/reports" element={<Reports />} />
       </Routes>
-    </div>
+    </Layout>
   );
 }
 

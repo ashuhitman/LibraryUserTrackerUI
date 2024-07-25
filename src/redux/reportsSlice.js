@@ -1,6 +1,7 @@
 // reportsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { REPORTS_API } from "../utils/constants";
 
 // Async thunk for fetching reports
 export const fetchReports = createAsyncThunk(
@@ -16,10 +17,7 @@ export const fetchReports = createAsyncThunk(
 export const addReport = createAsyncThunk(
   "reports/addReport",
   async (newReport) => {
-    const response = await axios.post(
-      "http://localhost:8000/reports",
-      newReport
-    );
+    const response = await axios.post(REPORTS_API.CHECKINOUT, newReport);
     return response.data;
   }
 );
@@ -28,7 +26,7 @@ export const addReport = createAsyncThunk(
 export const fetchSummary = createAsyncThunk(
   "reports/fetchSummary",
   async () => {
-    const response = await axios.get("http://localhost:8000/reports/summary");
+    const response = await axios.get(REPORTS_API.SUMMARY);
     console.log(response);
     return response.data;
   }

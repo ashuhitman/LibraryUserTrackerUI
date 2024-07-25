@@ -57,7 +57,6 @@ const Home = () => {
   }, [isCheckedIn]);
 
   useEffect(() => {
-    console.log("running home useffect", addStatus, latest);
     if (Object.keys(latest).length === 0) return;
     if (addStatus === "succeeded") {
       setIsCheckedIn(true);

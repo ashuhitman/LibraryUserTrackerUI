@@ -16,6 +16,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import { fetchReports } from "../../redux/reportsSlice";
 import FilterComponent from "../../components/FilterComponent/FilterComponent";
 import Loader from "../../components/Loader/Loader";
+import { REPORTS_API } from "../../utils/constants";
 
 function Reports() {
   const {
@@ -40,10 +41,10 @@ function Reports() {
     const { startDate, endDate } = getQueryParams();
     if (startDate && endDate) {
       const query = `startDate=${startDate}&endDate=${endDate}`;
-      dispatch(fetchReports(`http://localhost:8000/reports?${query}`));
+      dispatch(fetchReports(`${REPORTS_API.FETCH}?${query}`));
     } else {
       if (fetchStatus === "idle") {
-        dispatch(fetchReports("http://localhost:8000/reports"));
+        dispatch(fetchReports(REPORTS_API.FETCH));
       }
     }
 
