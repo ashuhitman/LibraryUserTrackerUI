@@ -1,5 +1,6 @@
 .center {
-  background-image: url("./assets/images/background.jpg"); /* Update with your background image path */
+  /* background-image: url("./assets/images/background.jpg"); */
+  background-image: url("./images/background.jpg"); /* Update with your background image path */
   background-size: cover;
   background-position: center;
   display: flex;
