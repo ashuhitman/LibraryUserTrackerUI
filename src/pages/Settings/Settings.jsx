@@ -18,6 +18,9 @@ function Settings() {
   console.log("alert, show", show);
 
   const { data, status } = useSelector((state) => state.libraryInfo);
+  useEffect(() => {
+    window.title = "Settings";
+  }, []);
 
   useEffect(() => {
     // Fetch library info only if not already fetched

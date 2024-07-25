@@ -131,7 +131,9 @@ const Home = () => {
             />
           </div>
           <div className={styles.formGroup}>
-            <button type="submit">Check-in/Check-out</button>
+            <button type="submit">
+              {addStatus === "loading" ? "Checking...." : "Check-in/Check-out"}
+            </button>
           </div>
         </form>
 
