@@ -77,9 +77,9 @@ function Reports() {
   // download as excel or pdf file
   const download = (type = 0) => {
     if (type === 0) {
-      downloadJSONAsExcel(reportsData);
+      downloadJSONAsExcel(reports);
     } else if (type === 1) {
-      downloadJSONAsPDF(reportsData);
+      downloadJSONAsPDF(reports);
     }
   };
   const fetchTodayData = () => {
