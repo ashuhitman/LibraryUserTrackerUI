@@ -59,3 +59,22 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+.demo {
+  color: black;
+  text-align: center;
+}
+.demo ul {
+  color: black;
+  display: flex;
+  list-style: none;
+}
+.demo li {
+  flex: 1;
+  margin-top: 0.8rem;
+}
+.demo li:last-child {
+  cursor: pointer;
+}
+.demo li:last-child:hover {
+  color: gray;
+}

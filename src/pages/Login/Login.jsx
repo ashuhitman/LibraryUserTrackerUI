@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Login.module.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { FaCopy, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "../../components/Alert/Alert";
 import { useAlert } from "../../context/AlertContext";
@@ -23,13 +23,18 @@ function Login() {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
 
-    console.log({ username, password });
     if (username === "admin" && password === "password") {
       showAlert("User logged in successfully", "success");
       navigate("/home");
       return;
     }
     showAlert("Wrong username or password", "error");
+  };
+
+  const copy = () => {
+    usernameRef.current.value = "admin";
+    passwordRef.current.value = "password";
+    // setShowPassword(false);
   };
 
   return (
@@ -69,6 +74,16 @@ function Login() {
           </button>
         </div>
       </form>
+      <div className={styles.demo}>
+        <h5>Demo Account login credential</h5>
+        <ul>
+          <li>admin</li>
+          <li>password</li>
+          <li onClick={copy}>
+            <FaCopy />
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
