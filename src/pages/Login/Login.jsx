@@ -23,7 +23,7 @@ function Login() {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
 
-    if (username === "admin" && password === "password") {
+    if (username === "admin" && password === "123456") {
       showAlert("User logged in successfully", "success");
       navigate("/home");
       return;
@@ -33,7 +33,7 @@ function Login() {
 
   const copy = () => {
     usernameRef.current.value = "admin";
-    passwordRef.current.value = "password";
+    passwordRef.current.value = "123456";
     // setShowPassword(false);
   };
 
@@ -78,7 +78,7 @@ function Login() {
         <h5>Demo Account login credential</h5>
         <ul>
           <li>admin</li>
-          <li>password</li>
+          <li>123456</li>
           <li onClick={copy}>
             <FaCopy />
           </li>
