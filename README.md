@@ -1,7 +1,7 @@
 # Library User Tracker App
 developed using React for frontend and expressjs and mongodb for backend
 
-<a href="https://keen-lokum-279032.netlify.app/" target="_blank">Visit LibraryUserTracker</a>
+<a href="https://libraryusertracker.netlify.app/" target="_blank">Visit LibraryUserTracker</a>
 
 <img src='./screenshots/1.png'>
 <img src='./screenshots/2.png'>
@@ -26,7 +26,7 @@ developed using React for frontend and expressjs and mongodb for backend
 1. Clone the repo
 
 ```bash
-git clone https://github.com/ashuhitman/quizkosh
+git clone https://github.com/ashuhitman/LibraryUserTrackerUI/
 ```
 
 2. Install dependencies
